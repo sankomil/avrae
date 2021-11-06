@@ -7,7 +7,7 @@ d = "tarotDeck" if not aps else "apsTarotDeck"
 setup = "set".lower() in a
 deck = load_json(get(d,"[]"))
 draw = "draw" in a and len(deck) > 0
-size = 22 if setup and not aps else 14 if setup and aps else len(deck) if deck else 0
+size = 79 if setup and not aps else 20 if setup and aps else len(deck) if deck else 0
 pos = argparse(a).last("position")
 pos = int(pos) if draw and pos and int(pos) > 0 and int(pos) < size else ""
 
