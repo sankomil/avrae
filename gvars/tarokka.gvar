@@ -1,0 +1,214 @@
+{
+    "abjurer": {
+        "name": "Four of stars",
+        "image": "https://i.imgur.com/g5DeR8G.png"
+    },
+    "anarchist": {
+        "name": "Six of glyphs",
+        "image": "https://i.imgur.com/6L1yUfn.png"
+    },
+    "artifact": {
+        "name": "Artifact",
+        "image": "https://i.imgur.com/R8ntNGg.png"
+    },
+    "avenger": {
+        "name": "One of swords",
+        "image": "https://i.imgur.com/hbqRXkf.png"
+    },
+    "beast": {
+        "name": "Beast",
+        "image": "https://i.imgur.com/PkVaYEo.png"
+    },
+    "beggar": {
+        "name": "Six of coins",
+        "image": "https://i.imgur.com/FLvjYrB.png"
+    },
+    "berserker": {
+        "name": "Six of swords",
+        "image": "https://i.imgur.com/zfG69Vy.png"
+    },
+    "bishop": {
+        "name": "Eight of glyphs",
+        "image": "https://i.imgur.com/DygIxMA.png"
+    },
+    "brokenOne": {
+        "name": "Broken One",
+        "image": "https://i.imgur.com/jpaK9rg.png"
+    },
+    "charlatan": {
+        "name": "Seven of glyphs",
+        "image": "https://i.imgur.com/vkUHgV8.png"
+    },
+    "conjurer": {
+        "name": "Seven of glyphs",
+        "image": "https://i.imgur.com/a09yNDA.png"
+    },
+    "darkLord": {
+        "name": "Darklord",
+        "image": "https://i.imgur.com/sxRPozy.png"
+    },
+    "dictator": {
+        "name": "Eight of swords",
+        "image": "https://i.imgur.com/8oS9RSO.png"
+    },
+    "diviner": {
+        "name": "Two of stars",
+        "image": "https://i.imgur.com/83UJTma.png"
+    },
+    "donjon": {
+        "name": "Donjon",
+        "image": "https://i.imgur.com/el5VJD0.png"
+    },
+    "druid": {
+        "name": "Five of glyphs",
+        "image": "https://i.imgur.com/BijlrXL.png"
+    },
+    "elementalist": {
+        "name": "Five of stars",
+        "image": "https://i.imgur.com/aTI43vA.png"
+    },
+    "enchanter": {
+        "name": "Three of stars",
+        "image": "https://i.imgur.com/eo6fGxz.png"
+    },
+    "evoker": {
+        "name": "Six of stars",
+        "image": "https://i.imgur.com/VfMo12x.png"
+    },
+    "executioner": {
+        "name": "Executioner",
+        "image": "https://i.imgur.com/FGLgPMo.png"
+    },
+    "ghost": {
+        "name": "Ghost",
+        "image": "https://i.imgur.com/qrGnRuw.png"
+    },
+    "guildMember": {
+        "name": "Five of coins",
+        "image": "https://i.imgur.com/gRtY1qa.png"
+    },
+    "healer": {
+        "name": "Three of glyphs",
+        "image": "https://i.imgur.com/9QRUYKR.png"
+    },
+    "hoodedOne": {
+        "name": "Seven of swords",
+        "image": "https://i.imgur.com/dfdfS0r.png"
+    },
+    "horseman": {
+        "name": "Horseman",
+        "image": "https://i.imgur.com/9gpn7sj.png"
+    },
+    "illusionist": {
+        "name": "Seven of stars",
+        "image": "https://i.imgur.com/pO1IlFU.png"
+    },
+    "innocent": {
+        "name": "Innocent",
+        "image": "https://i.imgur.com/wtkVPWE.png"
+    },
+    "marionette": {
+        "name": "Marionette",
+        "image": "https://i.imgur.com/HIrAXoZ.png"
+    },
+    "mercenary": {
+        "name": "Four of swords",
+        "image": "https://i.imgur.com/GmxHTCj.png"
+    },
+    "merchant": {
+        "name": "Four of coins",
+        "image": "https://i.imgur.com/OfYhm09.png"
+    },
+    "miser": {
+        "name": "Nine of coins",
+        "image": "https://i.imgur.com/AK9ymuu.png"
+    },
+    "missionary": {
+        "name": "Two of glyphs",
+        "image": "https://i.imgur.com/qo2x6BV.png"
+    },
+    "mists": {
+        "name": "Mists",
+        "image": "https://i.imgur.com/2ezeLYi.png"
+    },
+    "monk": {
+        "name": "One of glyphs",
+        "image": "https://i.imgur.com/OXhMIJQ.png"
+    },
+    "myrmidon": {
+        "name": "Five of swords",
+        "image": "https://i.imgur.com/7TVXXpM.png"
+    },
+    "necromancer": {
+        "name": "Eight of stars",
+        "image": "https://i.imgur.com/BwBop1F.png"
+    },
+    "paladin": {
+        "name": "Two of swords",
+        "image": "https://i.imgur.com/o2FryVo.png"
+    },
+    "philanthropist": {
+        "name": "Two of coins",
+        "image": "https://i.imgur.com/S9hkCkm.png"
+    },
+    "priest": {
+        "name": "Master of glyphs",
+        "image": "https://i.imgur.com/H3wEfNJ.png"
+    },
+    "Raven": {
+        "name": "Raven",
+        "image": "https://i.imgur.com/fc1xwIO.png"
+    },
+    "rogue": {
+        "name": "Master of coins",
+        "image": "https://i.imgur.com/5BaTPjq.png"
+    },
+    "seer": {
+        "name": "Seer",
+        "image": "https://i.imgur.com/YIeh3NW.png"
+    },
+    "shepherd": {
+        "name": "Four of glyphs",
+        "image": "https://i.imgur.com/gO56hqk.png"
+    },
+    "swashbuckler": {
+        "name": "One of coins",
+        "image": "https://i.imgur.com/rHNocKQ.png"
+    },
+    "taxCollector": {
+        "name": "Eight of coins",
+        "image": "https://i.imgur.com/AqBFSpY.png"
+    },
+    "tempter": {
+        "name": "Tempter",
+        "image": "https://i.imgur.com/AFOmNvu.png"
+    },
+    "thief": {
+        "name": "Seven of coins",
+        "image": "https://i.imgur.com/lUbAkS3.png"
+    },
+    "torturer": {
+        "name": "Nine of swords",
+        "image": "https://i.imgur.com/ilOGRmg.png"
+    },
+    "trader": {
+        "name": "Three of coins",
+        "image": "https://i.imgur.com/M7ZmKDA.png"
+    },
+    "traitor": {
+        "name": "Nine of glyphs",
+        "image": "https://i.imgur.com/e0g86KI.png"
+    },
+    "transmuter": {
+        "name": "One of stars",
+        "image": "https://i.imgur.com/giaJQw7.png"
+    },
+    "warrior": {
+        "name": "Master of swords",
+        "image": "https://i.imgur.com/tpTYm6X.png"
+    },
+    "wizard": {
+        "name": "Master of stars",
+        "image": "https://i.imgur.com/wJRYq67.png"
+    },
+}

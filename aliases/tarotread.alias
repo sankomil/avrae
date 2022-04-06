@@ -1,4 +1,4 @@
-!alias tarotread embed
+embed
 <drac2>
 a, n = &ARGS&, '\n'
 aps = argparse(a).last("aps")
@@ -7,7 +7,7 @@ d = "tarotDeck" if not aps else "apsTarotDeck"
 setup = "set".lower() in a
 deck = load_json(get(d,"[]"))
 draw = "draw" in a and len(deck) > 0
-size = 22 if setup and not aps else 14 if setup and aps else len(deck) if deck else 0
+size = 79 if setup and not aps else 20 if setup and aps else len(deck) if deck else 0
 pos = argparse(a).last("position")
 pos = int(pos) if draw and pos and int(pos) > 0 and int(pos) < size else ""
 
@@ -53,5 +53,4 @@ cardImage = f""" -image "{f'http://i.imgur.com/{card.image}.png' if card else ""
 footer = f""" -footer "Tarot Draw | {ctx.prefix}{ctx.alias} set - Sets up the deck | {ctx.prefix}{ctx.alias} draw [-position #] - Draws a card {n}Created by RoyaleWithCheese#3039 and Panphoria#4915" """
 
 return f"{title} {desc} {cardImage} -thumb {image} -color {color} {footer}"
-return f"""{title}"""
 </drac2>

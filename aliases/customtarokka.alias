@@ -1,0 +1,69 @@
+embed 
+<drac2>
+a, n = &ARGS&, '\n'
+g = load_json(get_gvar("e1a09dcf-2c8f-45d9-95a3-b831046934a4")) 
+d = "tarokkaDeck"
+deck = load_json(get(d,"[]"))
+setup = "set".lower() in a
+draw = "draw".lower() in a
+size = 54
+pos = argparse(a).last("position")
+pos = int(pos) if draw and pos and int(pos) > 0 and int(pos) < size else ""
+
+if setup:
+    count = 0
+    deck = []
+    for c in g:
+        deck.append(c)
+        count = count + 1
+        if count == size:
+            break
+      
+shuffled=[]
+
+while deck:
+    shuffled.append(deck.pop(randint(len(deck))))  
+    
+deck = shuffled
+
+tome = argparse(a).last("tome")
+
+ravenkind = argparse(a).last("ravenkind")
+
+sunsword = argparse(a).last("sunsword")
+
+cardName = deck[randint(len(deck)-1)] if draw else ""
+
+if tome:
+    cardName = "torturer"
+
+elif ravenkind:
+    cardName = "myrmidon"
+
+elif sunsword:
+    cardName = "bishop"
+
+card = False
+
+if cardName in deck:
+    card = g[cardName]
+
+if cardName and draw and card:
+    deck.remove(cardName)
+    numCards = len(deck) - 1
+
+if deck:
+    set_cvar(d,dump_json(deck))
+
+
+title = f""" -title "{name} {f"draws {card.name} from the deck" if draw and card else "tries to choose a card that has already been drawn" if not card and draw else "sets up their Tarokka deck" if setup else "needs help with their Tarokka deck"}" """
+
+desc = f""" -desc "{card.name if draw and card else "The card you are attempting to draw has already been drawn" if draw and not card else f"Start drawing with `{ctx.prefix}{ctx.alias} draw`" if setup else f"1. Set up with `{ctx.prefix}{ctx.alias} set`{n}2. Draw with `{ctx.prefix}{ctx.alias} draw`"}" """
+
+cardImage = f""" -image "{f'{card.image}' if card else ""}" """
+
+footer = f""" -footer "Tarokka Draw | {ctx.prefix}{ctx.alias} set - Sets up the deck | {ctx.prefix}{ctx.alias} draw - Draws a card {n}Created by RoyaleWithCheese#3039" """
+
+return f"{title} {desc} {cardImage} -thumb {image} -color {color} {footer}"
+
+</drac2>
