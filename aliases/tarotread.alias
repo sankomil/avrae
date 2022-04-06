@@ -53,4 +53,6 @@ cardImage = f""" -image "{f'http://i.imgur.com/{card.image}.png' if card else ""
 footer = f""" -footer "Tarot Draw | {ctx.prefix}{ctx.alias} set - Sets up the deck | {ctx.prefix}{ctx.alias} draw [-position #] - Draws a card {n}Created by RoyaleWithCheese#3039 and Panphoria#4915" """
 
 return f"{title} {desc} {cardImage} -thumb {image} -color {color} {footer}"
+
 </drac2>
+
