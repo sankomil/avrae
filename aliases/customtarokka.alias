@@ -9,6 +9,7 @@ draw = "draw".lower() in a
 size = 54
 pos = argparse(a).last("position")
 pos = int(pos) if draw and pos and int(pos) > 0 and int(pos) < size else ""
+inputCardName = argparse(a).last("card").lower() if argparse(a).last("card") else False
 
 if setup:
     count = 0
@@ -32,7 +33,7 @@ ravenkind = argparse(a).last("ravenkind")
 
 sunsword = argparse(a).last("sunsword")
 
-cardName = deck[randint(len(deck)-1)] if draw else ""
+cardName = inputCardName if inputCardName and draw else deck[randint(len(deck)-1)] if draw and not inputCardName else ""
 
 if tome:
     cardName = "torturer"
@@ -45,7 +46,7 @@ elif sunsword:
 
 card = False
 
-if cardName in deck:
+if cardName and cardName in deck:
     card = g[cardName]
 
 if cardName and draw and card:
