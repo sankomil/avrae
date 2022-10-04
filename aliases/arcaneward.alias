@@ -1,0 +1,39 @@
+embed <drac2>
+ch = character()
+cc = "Arcane Ward"
+ign = argparse(&ARGS&).get("i")
+n = '\n'
+wizLevel = get("WizardLevel") or 0
+ch.create_cc_nx(cc, 0, 1, "long", "bubble") if wizLevel >=2 else ''
+
+x = ch.cc_exists(cc) or ign
+val = ign or ch.get_cc(cc) if x else False
+
+title = f""" -title "{name} uses their Arcane Ward!" """
+
+desc = f""" -desc "Starting at 2nd level, you can weave magic around yourself for protection. When you cast an abjuration spell of 1st level or higher, you can simultaneously use a strand of the spell's magic to create a magical ward on yourself that lasts until you finish a long rest.{n}{n}The ward has a hit point maximum equal to twice your wizard level + your Intelligence modifier. Whenever you take damage, the ward takes the damage instead. If this damage reduces the ward to 0 hit points, you take any remaining damage. While the ward has 0 hit points, it can't absorb damage, but its magic remains. Whenever you cast an abjuration spell of 1st level or higher, the ward regains a number of hit points equal to twice the level of the spell.{n}{n}Once you create the ward, you can't create it again until you finish a long rest {val}." """
+
+if not ign and x:
+    ch.set_cc(cc, 0)
+
+if not val:
+    title = f""" -title "{name} tries to use their Arcane Ward!" """
+
+    desc = f""" -desc "Unfortunately you have used your Arcane Ward ability. To add further hit points cast an Abjuration spell. Arcane Ward resets on a long rest." """
+    
+if not wizLevel:
+    title = f""" -title "You do not have the required levels in wizard." """
+    
+    desc = f"""-desc "Please take the prerequisite levels to gain this ability" """
+    
+field = f""" -f "{cc}{'(-1)' if val and not ign else ''}|{ch.cc_str(cc)}" """ if x else ''
+
+if val:
+    ch.set_temp_hp(2*wizLevel + intelligenceMod)
+    field += f""" -f "THP|{2*wizLevel + intelligenceMod}" """
+
+footer = f""" -footer "{ctx.prefix}{ctx.alias} [-i]{n}Created by RoyaleWithCheese" """
+
+return f"{title} {desc} {field} -thumb {image} -color {color} {footer}"
+
+</drac2>

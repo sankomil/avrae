@@ -27,11 +27,13 @@ while deck:
     
 deck = shuffled
 
-tome = argparse(a).last("tome")
+tome = argparse(a).last("knowledge")
 
-ravenkind = argparse(a).last("ravenkind")
+ravenkind = argparse(a).last("protection")
 
-sunsword = argparse(a).last("sunsword")
+sunsword = argparse(a).last("weapon")
+
+ally = argparse(a).last("enemy")
 
 cardName = inputCardName if inputCardName and draw else deck[randint(len(deck)-1)] if draw and not inputCardName else ""
 
@@ -44,6 +46,9 @@ elif ravenkind:
 elif sunsword:
     cardName = "bishop"
 
+elif ally:
+    cardName = "mists"
+
 card = False
 
 if cardName and cardName in deck:
@@ -54,7 +59,7 @@ if cardName and draw and card:
     numCards = len(deck) - 1
 
 if deck:
-    set_cvar(d,dump_json(deck))
+    character().set_cvar(d,dump_json(deck))
 
 
 title = f""" -title "{name} {f"draws {card.name} from the deck" if draw and card else "tries to choose a card that has already been drawn" if not card and draw else "sets up their Tarokka deck" if setup else "needs help with their Tarokka deck"}" """
