@@ -1,0 +1,46 @@
+embed <drac2>
+#assign variables
+a,ch=argparse(&ARGS&), character()
+cc = "Shit rolls counter"
+counterCC = "Number of rolls"
+n = "\n"
+    
+#grab the first argument and match it to a skill or default to perception
+skill = ([x for x,y in ch.skills if '&1&'.lower() in x.lower()]+['perception'])[0]
+    
+#construct our skill roll, adding proficiency or expertise automatically via .d20(), rerolling 1s for Halfling Luck, applying Reliable Talent if proficient or expertise found in skill along with parsing for advantage/disadvantage and bonuses from our args.
+    
+    #grab adv/dis from our parsed args and make it a boolean. adv=True, dis=False, neither is None.
+adv = a.adv(boolwise=True)
+    
+#grab the reroll number if the character has the csetting reroll or default to None
+reroll_number = ch.csettings.get("reroll", None)
+    
+#grab a minimum from our args like a standard !check, (-mc #) or set it to 10 if the character has the csetting 'talent' set to True and has proficiency or expertise in the chosen skill.
+minimum_check = a.last('mc', None, int) or (10 if ch.csettings.get("talent", False) and ch.skills[skill].prof else None)
+    
+#grab our bonuses, if any and add them to our roll
+bonus = ("+"+a.join('b', '+', '') if a.get('b') else '')
+    
+#put all those arguments in the proper places in our d20() function, inside a vroll().
+r = vroll(ch.skills[skill].d20(adv, reroll_number, minimum_check)+bonus)
+    
+actualRoll = int(r.raw.left.left.values[0].values[0])
+ch.mod_cc(counterCC,+1)
+counterField = f""" -f "{counterCC} (+1)|{ch.cc_str(counterCC)}" """
+    
+if actualRoll < 10:
+    ch.mod_cc(cc,-1)
+    field = f""" -f "{cc} (-1)|{ch.cc_str(cc)}" """
+        
+else:
+    ch.mod_cc(cc,+1)
+    field = f""" -f "{cc} (+1)|{ch.cc_str(cc)}" """
+        
+title = f""" -title "{name} makes a {skill.capitalize()} check!" """
+    
+desc = f""" -desc "{r.result}" """
+    
+    
+return f"{title} {field} {desc} {counterField} -color {color} -thumb {image}"
+</drac2>
