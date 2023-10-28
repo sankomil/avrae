@@ -1,0 +1,17 @@
+embed
+<drac2>
+a = &ARGS&
+g = load_json(get_gvar("39d1d392-b82d-4f1e-a83f-836e9a0be715"))
+character_name = g.name
+skill = argparse(a).last("skill").lower()
+x = skill in ["charm", "cool", "sharp", "tough", 'weird']
+
+skill_mod = g[skill] if x else False
+r = vroll(f"2d6+{skill_mod}")
+
+title = f""" -title "{character_name} {f'makes a {skill.capitalize()} check!' if x else 'tries to make a skill check'}" """
+
+description = f""" -desc "{r.result if x else 'Roll one of the following: charm, cool, sharp, tough, weird'}" """
+
+return f""" {title} {description}"""
+</drac2>
