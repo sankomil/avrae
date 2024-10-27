@@ -1,0 +1,37 @@
+embed
+<drac2>
+a = &ARGS&
+g = load_json(get_gvar("b0cc8570-b1f0-43a7-98bc-7b367d1e49ed"))
+character_name = g.name
+skill = argparse(a).last("skill").lower()
+dc = int(argparse(a).last("dc").lower())
+x = skill in ["sexy", "battle", "wizard"]
+ch = character()
+stress = "Stress"
+determination = "Determination"
+
+if not ch.cc_exists(stress):
+    ch.create_cc_nx(stress, 0, 99)
+
+if not ch.cc_exists(determination):
+    ch.create_cc_nx(determination, 0, 99)
+
+skill_mod = g[skill] if x else False
+r = vroll(f"{skill_mod}d6kh1")
+
+title = f""" -title "{character_name} {f'makes a {skill.capitalize()} check!' if x else 'tries to make a skill check'}" """
+
+description = f""" -desc "{r.result if x else 'Roll one of the following: charm, cool, sharp, tough, weird'}" """
+
+field = f""" -f "Against DC {dc}|{f'**Success**' if r.total >= dc else '**Failure**'}" """
+
+if r.total <= dc:
+    ch.mod_cc(stress, +1)
+    field += f""" -f "{stress}(+1)|{ch.cc_str(stress)}" """
+
+if r.total < dc:
+    ch.mod_cc(determination, +1)
+    field += f""" -f "{determination}(+1)|{ch.cc_str(determination)}" """
+
+return f""" {title} {description} -thumb "https://i.imgur.com/0HhDRML.jpg" {field}"""
+</drac2>
