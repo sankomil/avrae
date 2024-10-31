@@ -1,11 +1,25 @@
 embed
 <drac2>
 a = &ARGS&
-g = load_json(get_gvar("b0cc8570-b1f0-43a7-98bc-7b367d1e49ed"))
+n = '\n'
+footer = f""" -footer "{ctx.prefix}{ctx.alias} [-skill skill name] [-dc #]{n}Created by royale_avec_cheese" """
+if not uvar_exists("sbwStats"):
+    return """-title 'Missing uvar' -desc 'To use this alias, create a uvar with `!uvar sbwStats {"name": "Fiona Noske",
+  "sexy": 2,
+  "battle": 1,
+  "wizard": 3,
+  "image": "https://i.imgur.com/0HhDRML.jpg"
+}`' {footer}"""
+g = load_json(get_uvar("sbwStats"))
 character_name = g.name
+if not argparse(a).last("skill"):
+    return "-title 'Please enter a valid skill' -desc 'Use the alias with `!sbw -skill <skill name> -dc #`. Skill must be [wizard, battle, sexy]' {footer}" 
 skill = argparse(a).last("skill").lower()
-dc = int(argparse(a).last("dc").lower())
+dc = argparse(a).last("dc")
+dc = int(dc) if dc else 0 
 x = skill in ["sexy", "battle", "wizard"]
+if not x:
+    return "-title 'Incorrect skill used' -desc 'Skill should be one of [wizard, battle, sexy]' {footer}"
 ch = character()
 stress = "Stress"
 determination = "Determination"
@@ -25,13 +39,13 @@ description = f""" -desc "{r.result if x else 'Roll one of the following: charm,
 
 field = f""" -f "Against DC {dc}|{f'**Success**' if r.total >= dc else '**Failure**'}" """
 
-if r.total <= dc:
+if r.total <= dc and dc != 0:
     ch.mod_cc(stress, +1)
     field += f""" -f "{stress}(+1)|{ch.cc_str(stress)}" """
 
-if r.total < dc:
+if r.total < dc and dc != 0:
     ch.mod_cc(determination, +1)
     field += f""" -f "{determination}(+1)|{ch.cc_str(determination)}" """
 
-return f""" {title} {description} -thumb "https://i.imgur.com/0HhDRML.jpg" {field}"""
+return f""" {title} {description} -thumb {g.image} {field} {footer}"""
 </drac2>
