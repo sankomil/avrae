@@ -21,7 +21,7 @@ for loop in range(argparse(args).last('rr',1,int)):
           if cc.value >= val[0]:
                 dc = val[1]
           else:
-                break;
+                break
 
     Dice = vroll(skill[1].d20())
 
